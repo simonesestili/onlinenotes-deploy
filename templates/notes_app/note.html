@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'notes_app/base.html' %}
+{% block body_content %}
+
+<form method="POST"> {% csrf_token %}
+
+    {{ form.title }}
+    <br>
+    {{ form.content }}
+    <br>
+    <p class="text-end"><input type="submit" value="Save" class="btn btn-lg btn-dark"></p>
+
+</form>
+
+{% endblock %}

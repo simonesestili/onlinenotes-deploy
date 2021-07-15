@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% extends 'notes_app/base.html' %}
+{% block body_content %}
+
+    <div class="card w-50 m-auto shadow mt-5">
+        <div class="card-body">
+            <h3 class="card-title p-4">Are you sure you want to delete <em>{{ note.title }}?</em></h3>
+    
+            <form method="POST"> {% csrf_token %}
+                <p class="text-center"><input class="btn btn-dark btn-lg fw-bold" type="submit" value="Permanently Delete"></p>
+            </form>
+    
+        </div>
+    </div>
+
+{% endblock %}

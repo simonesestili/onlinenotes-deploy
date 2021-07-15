@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static 'icons/title.svg' %}" type="image/x-icon">
+
+    <title>Online Notes</title>
+</head>
+<body class="bg-white1">
+    <nav class="navbar navbar-expand-lg bg-white2 navbar-light p-1">
+        <div class="container">
+            <a class="navbar-brand brand-text" href="{% url 'notes' %}">OnlineNotes.me</a>
+
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav">
+                
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            {{ user }}
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{% url 'notes' %}">My Notes</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                
+                </ul>
+            {% else %}
+                <a class="text-decoration-none" href="{% url 'login' %}">
+                    <button class="btn btn-dark btn-lg color-white2 fw-bold">Sign In</button>
+                </a>
+            {% endif %}
+
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block body_content %}
+        <!-- Body content goes HERE -->
+        {% endblock %}
+    </div>
+
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous">
+    </script>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
