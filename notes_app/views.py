@@ -95,3 +95,7 @@ class NoteList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         context['notes'] = context['notes'].filter(user=self.request.user)
         return context
+
+
+def index(request):
+    return HttpResponse('ONLINENOTES.me')

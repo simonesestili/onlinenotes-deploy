@@ -12,4 +12,6 @@ urlpatterns = [
     path('notes/', my_views.NoteList.as_view(), name='notes'),
     path('note/<int:pk>/', my_views.NoteUpdate.as_view(), name='note'),
     path('note-delete/<int:pk>/', my_views.NoteDelete.as_view(), name='note-delete'),
+
+    path('', my_views.index, name='index')
 ]
