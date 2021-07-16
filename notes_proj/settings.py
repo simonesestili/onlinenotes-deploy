@@ -26,7 +26,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-n#p!n*i41&5ms0nnuiu-=d-y@apbos40s6ooen@6)qac3$ubgy'
+SECRET_KEY = os.environ['ON_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -84,10 +84,10 @@ WSGI_APPLICATION = 'notes_proj.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mainDB',
-        'USER': 'postgres',
-        'PASSWORD': 'somepass',
-        'HOST': 'localhost',
+        'NAME': os.environ['ON_NAME'],
+        'USER': os.environ['ON_USER'],
+        'PASSWORD': os.environ['ON_PASS'],
+        'HOST': os.environ['ON_HOST'],
         'PORT': '5432',
     }
 }
