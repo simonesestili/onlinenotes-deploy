@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import django_heroku
+import dj_database_url
+
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -28,7 +31,7 @@ SECRET_KEY = 'django-insecure-n#p!n*i41&5ms0nnuiu-=d-y@apbos40s6ooen@6)qac3$ubgy
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,9 +130,9 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    STATIC_DIR,
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), )
+django_heroku.settings(locals())
 
 LOGIN_URL = '/login/'
 

@@ -1,0 +1,1 @@
+web gunicorn notes_proj.wsgi:apllication --log-file -
