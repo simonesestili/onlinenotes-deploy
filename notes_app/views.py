@@ -98,4 +98,4 @@ class NoteList(LoginRequiredMixin, ListView):
 
 
 def index(request):
-    return HttpResponse('ONLINENOTES.me')
+    return redirect('login', permanent=True)
