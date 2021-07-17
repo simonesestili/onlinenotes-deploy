@@ -16,7 +16,7 @@ urlpatterns = [
 
     path('', my_views.index, name='index'),
 
-    path('theme-light/', my_views.light_theme, name='theme-light'),
-    path('theme-dark/', my_views.dark_theme, name='theme-dark'),
+    path('theme-light-set/', my_views.light_theme, name='light-theme'),
+    path('theme-dark-set/', my_views.dark_theme, name='dark-theme'),
 
 ]

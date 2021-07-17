@@ -4,7 +4,11 @@
 
     <div class="card w-50 m-auto shadow mt-5">
         <div class="card-body">
+            {% if user.settings.enabled_dark %}
+            <h3 class="card-title p-4 text-dark">Are you sure you want to delete <em>{{ note.title }}?</em></h3>
+            {% else %}
             <h3 class="card-title p-4">Are you sure you want to delete <em>{{ note.title }}?</em></h3>
+            {% endif %}
     
             <form method="POST"> {% csrf_token %}
                 <p class="text-center"><input class="btn btn-dark btn-lg fw-bold" type="submit" value="Permanently Delete"></p>

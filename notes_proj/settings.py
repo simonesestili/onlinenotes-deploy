@@ -29,7 +29,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 SECRET_KEY = os.environ['ON_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hidden-thicket-40739.herokuapp.com', 'localhost', '127.0.0.1:8000']
 

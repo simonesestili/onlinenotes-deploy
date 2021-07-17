@@ -90,7 +90,7 @@ class NoteDelete(LoginRequiredMixin, DeleteView):
 
     def get(self, request, pk):
         if self.get_object().user != request.user:
-            return redirect('notes', permanent=True)
+            return redirect('notes')
 
         return super().get(request, pk)
 
@@ -117,7 +117,7 @@ def light_theme(request):
     user_settings = mod.Settings.objects.get(pk=request.user)
     user_settings.enabled_dark = False
     user_settings.save()
-    return redirect('notes', permanent=True)
+    return redirect('notes')
 
 
 def dark_theme(request):
@@ -127,5 +127,5 @@ def dark_theme(request):
     user_settings = mod.Settings.objects.get(pk=request.user)
     user_settings.enabled_dark = True
     user_settings.save()
-    return redirect('notes', permanent=True)
+    return redirect('notes')
     

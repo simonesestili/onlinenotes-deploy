@@ -48,9 +48,9 @@
 
                             <li><a class="dropdown-item" href="{% url 'notes' %}">My Notes</a></li>
                             {% if user.settings.enabled_dark %}
-                            <li><a class="dropdown-item" href="{% url 'theme-light' %}">Light Theme &nbsp;<img src="{% static 'icons/sun.svg' %}" alt=" " width="18" height="18"></a></li>
+                            <li><a class="dropdown-item" href="{% url 'light-theme' %}">Light Theme &nbsp;<img src="{% static 'icons/sun.svg' %}" alt=" " width="18" height="18"></a></li>
                             {% else %}
-                            <li><a class="dropdown-item" href="{% url 'theme-dark' %}">Dark Theme &nbsp;<img src="{% static 'icons/moon.svg' %}" alt=" " width="18" height="18"></a></li>
+                            <li><a class="dropdown-item" href="{% url 'dark-theme' %}">Dark Theme &nbsp;<img src="{% static 'icons/moon.svg' %}" alt=" " width="18" height="18"></a></li>
                             {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
