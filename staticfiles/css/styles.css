@@ -1,0 +1,36 @@
+input:focus {
+  outline: none;
+}
+
+.bg-1 {
+  background-color: #f8edeb;
+}
+
+.bg-2 {
+  background-color: #dddddd;
+}
+
+.brand-text {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 50px;
+}
+
+.yanone {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.color-1 {
+  color: #f8edeb;
+}
+
+.color-2 {
+  color: #dddddd;
+}
+
+.w35 {
+  width: 35%;
+}
+
+.label-font {
+  font-size: 20px;
+}
