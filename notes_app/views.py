@@ -110,5 +110,21 @@ def index(request):
     return redirect('login', permanent=True)
 
 
+def light_theme(request):
+    if not request.user.is_authenticated:
+        return redirect('login', permanent=True)
+
+    user_settings = mod.Settings.objects.get(pk=request.user)
+    user_settings.enabled_dark = False
+    user_settings.save()
+    return redirect('notes', permanent=True)
 
 
+def dark_theme(request):
+    if not request.user.is_authenticated:
+        return redirect('login', permanent=True)
+
+    user_settings = mod.Settings.objects.get(pk=request.user)
+    user_settings.enabled_dark = True
+    user_settings.save()
+    return redirect('notes', permanent=True)
