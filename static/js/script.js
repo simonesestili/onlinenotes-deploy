@@ -1,12 +1,14 @@
 var titleInputClasses = document.querySelector('#id_title').classList;
-titleInputClasses.add('form-control')
-titleInputClasses.add('form-control-lg')
-titleInputClasses.add('my-5')
+titleInputClasses.add('form-control');
+titleInputClasses.add('form-control-lg');
+titleInputClasses.add('my-5');
 
-var contentInputClasses = document.querySelector('#id_content').classList
-contentInputClasses.add('form-control')
+var contentInputClasses = document.querySelector('#id_content').classList;
+contentInputClasses.add('form-control');
 
+var titleInput = document.querySelector('#id_title');
 
-function setTheme(theme){
-    doc
+if (titleInput.value === 'Untitled Note'){
+    titleInput.placeholder = 'Untitled Note';
+    titleInput.value = null;
 }

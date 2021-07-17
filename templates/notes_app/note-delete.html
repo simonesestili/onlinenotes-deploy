@@ -11,7 +11,10 @@
             {% endif %}
     
             <form method="POST"> {% csrf_token %}
-                <p class="text-center"><input class="btn btn-dark btn-lg fw-bold" type="submit" value="Permanently Delete"></p>
+                <p class="text-center">
+                    <input class="btn btn-dark btn-lg" type="submit" value="Permanently Delete">
+                    <a href="{% url 'notes' %}" class="btn btn-dark btn-lg">No</a>
+                </p>
             </form>
     
         </div>
