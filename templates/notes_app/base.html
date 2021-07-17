@@ -7,17 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
 
     <link rel="shortcut icon" href="{% static 'icons/title.svg' %}" type="image/x-icon">
 
+    <!-- THEME -->
+    {% if user.settings.enabled_dark %}
+        <link rel="stylesheet" href="{% static 'css/dark.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'css/light.css' %}">
+    {% endif %}
+
     <title>Online Notes</title>
 </head>
-<body class="bg-white1">
-    <nav class="navbar navbar-expand-lg bg-white2 navbar-light p-1">
+<body class="bg-1">
+    
+    {% if user.settings.enabled_dark %}
+    <nav class="navbar navbar-expand-lg bg-2 navbar-dark p-1">
+    {% else %}
+    <nav class="navbar navbar-expand-lg bg-2 navbar-light p-1">
+    {% endif %}
+
         <div class="container">
             <a class="navbar-brand brand-text" href="{% url 'notes' %}">OnlineNotes.me</a>
 
@@ -28,8 +40,18 @@
                         <a class="nav-link dropdown-toggle fs-5" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
                             {{ user }}
                         </a>
+                        {% if user.settings.enabled_dark %}
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                        {% else %}
                         <ul class="dropdown-menu">
+                        {% endif %}
+
                             <li><a class="dropdown-item" href="{% url 'notes' %}">My Notes</a></li>
+                            {% if user.settings.enabled_dark %}
+                            <li><a class="dropdown-item" href="#">Light Mode</a></li>
+                            {% else %}
+                            <li><a class="dropdown-item" href="#">Dark Mode</a></li>
+                            {% endif %}
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -40,7 +62,7 @@
                 </ul>
             {% else %}
                 <a class="text-decoration-none" href="{% url 'login' %}">
-                    <button class="btn btn-dark btn-lg color-white2 fw-bold">Sign In</button>
+                    <button class="btn btn-dark btn-lg color-2 fw-bold">Sign In</button>
                 </a>
             {% endif %}
 

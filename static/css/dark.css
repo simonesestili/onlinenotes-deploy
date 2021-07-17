@@ -3,11 +3,11 @@ input:focus {
 }
 
 .bg-1 {
-  background-color: #f8edeb;
+  background-color: #111313;
 }
 
 .bg-2 {
-  background-color: #dddddd;
+  background-color: #1a1c1d;
 }
 
 .brand-text {
@@ -20,11 +20,11 @@ input:focus {
 }
 
 .color-1 {
-  color: #f8edeb;
+  color: #111313;
 }
 
 .color-2 {
-  color: #dddddd;
+  color: #1a1c1d;
 }
 
 .w35 {
@@ -33,4 +33,13 @@ input:focus {
 
 .label-font {
   font-size: 20px;
+}
+
+body {
+  color: white;
+}
+
+.my-table-dark {
+  background-color: #111313;
+  color: white;
 }

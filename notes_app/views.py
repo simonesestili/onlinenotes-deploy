@@ -1,4 +1,5 @@
 from datetime import datetime
+from django.contrib.auth.models import User
 from django.forms.models import fields_for_model
 from django.forms.widgets import Select
 from django.http.response import HttpResponse
@@ -22,15 +23,11 @@ class RegisterView(FormView):
 
     def form_valid(self, form):
         user = form.save()
+        new_setting = mod.Settings(user=user)
+        new_setting.save()
         if user:
             login(self.request, user)
         return super(RegisterView, self).form_valid(form)
-
-    def post(self, request, *args, **kwargs):
-        if self.form_invalid(self.get_form()):
-            print('FORM INVALID')
-
-        return super().post(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs ):
         if request.user.is_authenticated:
@@ -111,3 +108,7 @@ class NoteList(LoginRequiredMixin, ListView):
 
 def index(request):
     return redirect('login', permanent=True)
+
+
+
+

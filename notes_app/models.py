@@ -19,3 +19,6 @@ class Note(models.Model):
         ordering = ['-last_save_time']
 
 
+class Settings(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
+    enabled_dark = models.BooleanField(default=False)
