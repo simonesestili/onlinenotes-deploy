@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'notes_app/base.html' %}
 {% load static %}
+{% load time_ago %}
 {% block body_content %}
 
 <div class="mt-5">
@@ -43,7 +44,7 @@
                 {% else %}
                 <td><a class="link-dark" href="{% url 'note' note.pk %}">{{ note.title }}</a></td>
                 {% endif %}
-                <td>{{ note.last_save_time }}</td>
+                <td>{{ note.last_save_time|time_ago }}</td>
                 {% if user.settings.enabled_dark %}
                 <td> <a href="{% url 'note-delete' note.pk %}"><img src="{% static 'icons/delete-dark.svg' %}" alt="Delete"></a></td>
                 {% else %}

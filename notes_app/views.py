@@ -59,7 +59,7 @@ def note_create(request):
         print('TOO MANY NOTES')
         return redirect('notes')
 
-    time_now = datetime.utcnow()
+    time_now = datetime.now()
     new_note = mod.Note(user=request.user, title='Untitled Note', create_time=time_now, last_save_time=time_now)
     new_note.save()
     return redirect('note', pk=new_note.pk)
@@ -128,3 +128,4 @@ def dark_theme(request):
     user_settings.enabled_dark = True
     user_settings.save()
     return redirect('notes', permanent=True)
+    
