@@ -10,11 +10,17 @@
                 <div class="form-group">
                     <label for="id_username">Username</label>
                     <input class="form-control" type="text" name="username" maxlength="150" autofocus required id="id_username" placeholder="Username">
+                    {% for error in form.username.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
                     <br>
                 </div>
                 <div class="form-group">
                     <label for="id_email">Email</label>
                     <input class="form-control" type="email" name="email" required id="id_email" placeholder="email@example.com">
+                    {% for error in form.email.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
                     <br>
                 </div>
                 <div class="form-group">
@@ -25,8 +31,12 @@
                 <div class="form-group">
                     <label for="id_password2">Password confirmation</label>
                     <input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2">
+                    {% for error in form.password2.errors %}
+                        <p class="text-danger">{{ error }}</p>
+                    {% endfor %}
                     <br>
                 </div>
+
                 <input type="submit" value="Sign Up" class="btn btn-dark btn-lg fw-bold btn-outline-light">
                 <p class="mb-0 mt-3">Already have an account? Sign in <a href="{% url 'login' %}"
                         style="text-decoration: none;">here</a>.</p>

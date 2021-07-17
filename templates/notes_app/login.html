@@ -20,6 +20,9 @@
                     <input class="form-control" type="password" name="password" autocomplete="current-password" required id="id_password">
                     <br>
                 </div>
+                 
+                <p class="text-danger">{{ error }}</p>
+
                 <input type="submit" value="Sign In" class="btn btn-dark btn-lg fw-bold btn-outline-light">
                 <p class="mb-0 mt-3">Don't have an account? <a href="{% url 'register' %}" style="text-decoration: none;">Create an account</a>.</p>
             </form>

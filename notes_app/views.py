@@ -26,6 +26,12 @@ class RegisterView(FormView):
             login(self.request, user)
         return super(RegisterView, self).form_valid(form)
 
+    def post(self, request, *args, **kwargs):
+        if self.form_invalid(self.get_form()):
+            print('FORM INVALID')
+
+        return super().post(request, *args, **kwargs)
+
     def get(self, request, *args, **kwargs ):
         if request.user.is_authenticated:
             return redirect('notes')
@@ -40,6 +46,12 @@ class LoginPageView(LoginView):
 
     def get_success_url(self) -> str:
         return reverse_lazy('notes')
+
+    def post(self, request, *args, **kwargs):
+        if self.form_invalid(self.get_form()):
+            self.extra_context = {'error': 'Incorrect username or password. Please try again.',}
+            
+        return super().post(request, *args, **kwargs)
 
 
 def note_create(request):
