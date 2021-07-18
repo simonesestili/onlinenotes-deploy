@@ -8,9 +8,9 @@
     <h1 class="fw-bold">My Notes: </h1>
 
     {% if user.settings.enabled_dark %}
-    <a href="{% url 'note-create' %}" class="link-light">New note</a>
+    <a href="{% url 'note-create' %}" class="btn btn-dark btn-sm fw-bold btn-outline-light"><img src="{% static 'icons/newnote-dark.svg' %}" alt=" " width="20" height="20">&nbsp;New note</a>
     {% else %}
-    <a href="{% url 'note-create' %}" class="link-dark">New note</a>    
+    <a href="{% url 'note-create' %}" class="btn bg-1 btn-sm fw-bold btn-outline-dark"><img src="{% static 'icons/newnote-light.svg' %}" alt=" " width="20" height="20">&nbsp;New note</a>    
     {% endif %}
 
     {% if user.settings.enabled_dark %}
