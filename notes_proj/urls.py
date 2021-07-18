@@ -21,8 +21,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes_app.urls')),
 ]
-
-handler404 = ‘myapp.views.error_404’
-handler500 = ‘myapp.views.error_500’
-handler403 = ‘myapp.views.error_403’
-handler400 = ‘myapp.views.error_400’
