@@ -139,3 +139,19 @@ def dark_theme(request):
     user_settings.enabled_dark = True
     user_settings.save()
     return redirect('notes')
+
+
+def error_404(request, *args):
+    return render(request, 'notes_app/404.html')
+
+
+def error_500(request, *args):
+    return render(request, 'notes_app/404.html')
+    
+
+def error_403(request, *args):
+    return render(request, 'notes_app/404.html')
+
+
+def error_400(request, *args):
+    return render(request, 'notes_app/404.html')
