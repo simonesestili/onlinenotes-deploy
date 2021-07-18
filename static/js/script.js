@@ -8,7 +8,8 @@ contentInputClasses.add('form-control');
 
 var titleInput = document.querySelector('#id_title');
 
-if (titleInput.value === 'Untitled Note'){
+if (titleInput.value === 'Untitled Note' || titleInput.value === ''){
     titleInput.placeholder = 'Untitled Note';
+    titleInput.required = false;
     titleInput.value = null;
 }

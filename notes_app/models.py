@@ -4,10 +4,16 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Note(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    title = models.CharField(max_length=128, default='Untitled Note')
+    title = models.CharField(max_length=128, blank=True)
     content = models.TextField(null=True, blank=True)
     create_time = models.DateTimeField()
     last_save_time = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        print('title:', self.title)
+        if self.title.strip() == '':
+            self.title = 'Untitled Note'
+        super(Note, self).save(*args, **kwargs)
 
     def get_pk(self):
         return self.pk

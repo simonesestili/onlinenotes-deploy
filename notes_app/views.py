@@ -74,11 +74,22 @@ class NoteUpdate(LoginRequiredMixin, UpdateView):
     def get(self, request, pk):
         if self.get_object().user != request.user:
             return redirect('notes', permanent=True)
-
         return super().get(request, pk)
     
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.instance.title == '':
+            form.instance.title = 'Untitled Note'
+
+        return super().post(request, *args, **kwargs)
+
+
     def form_valid(self, form):
         form.instance.last_save_time = datetime.now()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
         return super().form_valid(form)
 
 
