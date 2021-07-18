@@ -20,5 +20,6 @@ from django.urls.conf import include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('notes_app.urls')),
-
 ]
+
+handler404 = 'notes_app.views.error_404'
